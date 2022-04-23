@@ -1,0 +1,63 @@
+<?php
+    include('../conexao.php');
+    include('menu.php');
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/estilos.css">
+    <title>Alterar Cliente</title>
+</head>
+<body>
+    <?php
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM pessoa WHERE id = '{$id}'";
+        $query = mysqli_query($conexao,$sql);
+        $item = mysqli_fetch_array($query, MYSQLI_ASSOC);
+    ?>
+    
+    <header>
+        <div class="header-pagina">Alterar Cliente</div>
+    </header>    
+
+    <section class="conteudo-cadastro">   
+        <form action="../controllers/cliente/cliente-editar.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
+            <label>Código:</label><br>
+            <?php echo $id; ?><br><br>
+            
+            <label for="nome">Nome:</label><br>
+            <input type="text" name="nome" id="nome" maxlength="70" value="<?php echo $item['nome'] ?>" class="input-nome"><br><br>
+
+            <fieldset class="field-natureza">
+                <legend>Natureza Jurídica</legend>
+                <input type="radio" name="tipo" id="pj" value="pj" <?php if($item['tipo'] == 'pj'){echo 'checked="checked"';} ?>> Pessoa Jurídica
+                <input type="radio" name="tipo" id="pf" value="pf" <?php if($item['tipo'] == 'pf'){echo 'checked="checked"';} ?>> Pessoa Física
+            </fieldset><br>
+            
+            <label for="documento">Documento:</label><br>
+            <input type="text" name="documento" id="documento" maxlength="14" value="<?php echo $item['documento'] ?>"><br><br>
+            
+            <label for="endereco">Endereço:</label><br>
+            <input type="text" name="endereco" id="endereco" maxlength="100" value="<?php echo $item['endereco'] ?>" class="input-endereco"><br><br>
+
+            <label for="telefone">Telefone:</label><br>
+            <input type="text" name="telefone" id="telefone" maxlength="14" value="<?php echo $item['telefone'] ?>"><br><br>
+            
+            <label for="email">e-mail:</label><br>
+            <input type="text" name="email" id="email" maxlength="100" value="<?php echo $item['email'] ?>" class="input-email"><br><br>
+            
+            <input type="checkbox" name="status" id="status" <?php if($item['status'] == 'A'){echo 'checked="checked"';} ?>>
+            <label for="status">Status</label><br><br>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </section>    
+</body>
+</html>
+<?php
+    mysqli_close($conexao);
+?>
