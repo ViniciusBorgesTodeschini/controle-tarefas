@@ -6,9 +6,9 @@
     $id        = $_POST['id'];
     $nome      = $_POST['nome'];
     $email     = $_POST['email'];
-    $senha     = $_POST['senha'];        
+    $senha     = md5($_POST['senha']);
     $dataAtualizacao = date('Y-m-d H:i:s', time());
-    $status    = 'A';
+    $status    = @$_POST['status'] == 'on'? 'A' : 'I';
 
     $sql = "UPDATE usuario SET nome_usuario = '{$nome}', email = '{$email}', senha = '{$senha}', 
                                data_atualizacao = '{$dataAtualizacao}', status = '{$status}'

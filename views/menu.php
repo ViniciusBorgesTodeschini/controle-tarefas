@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,8 +29,8 @@
         <div class="user-logado">
             <ul>
                <li class="opcoes-usuario"><a href="index.php"><img src="../assets/inicio.png" alt="Início" title="Início"></a></li> 
-               <li class="opcoes-usuario"><a href=""><img src="../assets/usuario.png" alt="Perfil" title="Perfil"></a></li>
-               <li class="opcoes-usuario"><a href="login.php?"><img src="../assets/logout.png" alt="Logout" title="Logout"></a></li>
+               <li class="opcoes-usuario"><a href="usuario-editar.php?id=<?php echo $_SESSION['usuario']['id']?>"><img src="../assets/usuario.png" alt="Perfil" title="Perfil"></a></li>
+               <li class="opcoes-usuario"><a href="../controllers/logout.php"><img src="../assets/logout.png" alt="Logout" title="Logout"></a></li>
             </ul> 
         </div>
 
@@ -35,11 +38,14 @@
 
         <div class="menu">
             <ul id="listaMenu">
+                <?php 
+                    if($_SESSION['usuario']['tipo'] == 'A'){
+                ?>
                 <li class="usuarios-lista"><a href="usuario-listar.php">Usuários</a></li>                
-                <div class="separador"></div>                
-
-                <li class="departamentos"><a href="departamento-listar.php">Departamentos</a></li>
-                <div class="separador"></div>                                
+                <div class="separador"></div>                                            
+                <?php 
+                    }
+                ?>
 
                 <li class="atendimento"><a href="atendimento-listar.php">Atendimento</a></li>
                 <div class="separador"></div>
@@ -49,6 +55,9 @@
 
                 <li class="pessoas"><a href="pessoa-listar.php">Pessoas</a></li>
                 <div class="separador"></div>
+                
+                <li class="departamentos"><a href="departamento-listar.php">Departamentos</a></li>
+                <div class="separador"></div>    
 
                 <li class="meio-atend"><a href="atendimento-meio-listar.php">Meios Atendimento</a></li>
                 <div class="separador"></div>

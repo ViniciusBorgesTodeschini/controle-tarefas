@@ -6,7 +6,7 @@
     $nome      = $_POST['nome'];
     $id_pessoa = $_POST['id_pessoa'];
     $email     = $_POST['email'];
-    $senha     = $_POST['senha'];        
+    $senha     = md5($_POST['senha']);
     $dataCadastro = date('Y-m-d H:i:s', time());
     $status    = 'A';
 
