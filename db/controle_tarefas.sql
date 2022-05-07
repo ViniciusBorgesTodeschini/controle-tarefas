@@ -243,7 +243,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `nome_usuario` (`nome_usuario`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,7 +252,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (9,34,'normal','normal@normal','123','2022-04-21 12:15:52','2022-04-21 12:47:09',NULL,'N','A'),(10,34,'administrador','adm@adm','123','2022-04-21 12:34:41',NULL,NULL,'A','A');
+INSERT INTO `usuario` VALUES (9,34,'normal','normal@normal','202cb962ac59075b964b07152d234b70','2022-04-21 12:15:52','2022-05-07 13:59:02',NULL,'N','A'),(10,34,'administrador','adm@adm','202cb962ac59075b964b07152d234b70','2022-04-21 12:34:41','2022-05-07 14:00:23',NULL,'A','A'),(11,34,'user com senha 123','user','202cb962ac59075b964b07152d234b70','2022-05-07 14:04:40',NULL,NULL,'A','A'),(12,35,'inativo','inativo@inativo','7363a0d0604902af7b70b271a0b96480','2022-05-07 14:06:41','2022-05-07 14:07:48',NULL,'N','I');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-22 20:31:16
+-- Dump completed on 2022-05-07 14:19:06
