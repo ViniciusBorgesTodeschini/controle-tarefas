@@ -41,6 +41,9 @@
                 <?php 
                     if($_SESSION['usuario']['tipo'] == 'A'){
                 ?>
+                <li class="usuarios-lista"><a href="integracao.php">Integrações</a></li>                
+                <div class="separador"></div>
+
                 <li class="usuarios-lista"><a href="usuario-listar.php">Usuários</a></li>                
                 <div class="separador"></div>                                            
                 <?php 
