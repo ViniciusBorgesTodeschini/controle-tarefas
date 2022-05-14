@@ -29,8 +29,8 @@
             <tbody>
                 <tr>
                     <td>Clientes</td>                    
-                    <td><a href="integracao-cliente-importar.php">Importar</a></td>
-                    <td><a href="integracao-cliente-exportar.php">Exportar</a></td>
+                    <td><a href="integracao-cliente-importar.php"><img src="../assets/upload.png" alt="Importar" title="Importar"></a></td>
+                    <td><a href="integracao-cliente-exportar.php"><img src="../assets/download.png" alt="Exportar" title="Exportar"></a></td>
                 </tr>			
             </tbody>
         </table>

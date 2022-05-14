@@ -65,8 +65,8 @@
                     <tr>
                         <td><?php echo $item['id']?></td>
                         <td><?php echo $item['solicitante']?></td>
-                        <td><?php echo $item['inicio_atend']?></td>
-                        <td><?php echo $item['fim_atend']?></td>
+                        <td><?php echo date('d/m/Y H:i:s',strtotime($item['inicio_atend']));?></td>
+                        <td><?php echo date('d/m/Y H:i:s',strtotime($item['fim_atend']));?></td>
                         <td><?php echo $item['assunto']?></td>
                         <td><?php echo $item['detalhes']?></td>
                         <td><?php echo $item['meio']?></td>
