@@ -159,7 +159,7 @@ CREATE TABLE `pessoa` (
   `cliente` char(1) DEFAULT 'N',
   PRIMARY KEY (`id`),
   UNIQUE KEY `documento` (`documento`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (34,'PJ Escritório','pj','00000000000001','Rua teste, 420.','+554834301245','escritorio@escritorio','A','S'),(35,'Usuario Funcionario do Escritório','pf','00000000000','Rua teste, 420.','+554834301245','fun1@fun1','A','N'),(36,'Cliente 1 do Escritório - PJ','pj','00000000000002','Rua teste, 420.','+554834301245','clipj1@clipj1','A','S'),(37,'Cliente 2 do Escritório - PF','pf','00000000003','Rua teste, 420.','+554834301245','clipf2@clipf2','I','S'),(38,'Funcionario 1 cliente 1','pf','00000000004','Rua teste, 420.','+554834301245','fun1cli1@fun1cli1','A','N'),(39,'Funcionario 1 cliente 2','pf','00000000005','Rua teste, 420.','+554834301245','fun1cli2@fun1cli2','I','N');
+INSERT INTO `pessoa` VALUES (34,'PJ Escritório','pj','00000000000001','Rua teste, 420.','+554834301245','escritorio@escritorio','A','S'),(35,'Usuario Funcionario do Escritório','pf','00000000000','Rua teste, 420.','+554834301245','fun1@fun1','A','N'),(36,'Cliente 1 do Escritório - PJ','pj','00000000000002','Rua teste, 420.','+554834301245','clipj1@clipj1','A','S'),(37,'Cliente 2 do Escritório - PF','pf','00000000003','Rua teste, 420.','+554834301245','clipf2@clipf2','I','S'),(38,'Funcionario 1 cliente 1','pf','00000000004','Rua teste, 420.','+554834301245','fun1cli1@fun1cli1','A','N'),(39,'Funcionario 1 cliente 2','pf','00000000005','Rua teste, 420.','+554834301245','fun1cli2@fun1cli2','I','N'),(43,'Cliente JSON','pf','12456767811','rua json, 123','554812345678','clientejson@clientejson','A','S'),(54,'Cliente JSON 2','pf','12456767812','rua json, 123','554812345678','clientejson2@clientejson2','A','S'),(55,'Cliente JSON 3','pf','12456767813','rua json, 123','554812345678','clientejso3n@clientejson3','A','S'),(58,'Cliente JSON 4','pf','12456767814','rua json, 123','554812345678','clientejson4@clientejson4','A','S'),(60,'Cliente JSON 5','pf','12456767815','rua json, 123','554812345678','clientejson5@clientejson5','A','S');
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +252,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (9,34,'normal','normal@normal','202cb962ac59075b964b07152d234b70','2022-04-21 12:15:52','2022-05-07 13:59:02',NULL,'N','A'),(10,34,'administrador','adm@adm','202cb962ac59075b964b07152d234b70','2022-04-21 12:34:41','2022-05-07 14:00:23',NULL,'A','A'),(11,34,'user com senha 123','user','202cb962ac59075b964b07152d234b70','2022-05-07 14:04:40',NULL,NULL,'A','A'),(12,35,'inativo','inativo@inativo','7363a0d0604902af7b70b271a0b96480','2022-05-07 14:06:41','2022-05-07 14:07:48',NULL,'N','I');
+INSERT INTO `usuario` VALUES (9,34,'normal','normal@normal','202cb962ac59075b964b07152d234b70','2022-04-21 12:15:52','2022-05-07 13:59:02',NULL,'N','A'),(10,34,'administrador','adm@adm','202cb962ac59075b964b07152d234b70','2022-04-21 12:34:41','2022-05-07 14:00:23',NULL,'A','A'),(11,34,'user com senha 123','user','202cb962ac59075b964b07152d234b70','2022-05-07 14:04:40',NULL,NULL,'A','A'),(12,35,'inativo','inativo@inativo','b58c50e209762c24adb9f29daffe249c','2022-05-07 14:06:41','2022-05-14 11:06:28',NULL,'N','I');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-07 14:19:06
+-- Dump completed on 2022-05-14 13:37:34
