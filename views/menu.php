@@ -21,7 +21,15 @@
         <div class="separador"></div>
 
         <div class="imagem-empresa">
-            Logo da empresa cliente aqui                        
+            <img src="../assets/logos/logo-empresa.png" alt="" class="logo-empresa">
+            
+            <?php 
+                if($_SESSION['usuario']['tipo'] == 'A'){
+            ?>
+            <a href="upload-logo.php"><img class="alterar" src="../assets/ferramenta.png" alt="Alterar logo" title="Alterar logo"></a>
+            <?php 
+                }
+            ?>
         </div>
 
         <div class="traco"></div>
@@ -41,7 +49,7 @@
                 <?php 
                     if($_SESSION['usuario']['tipo'] == 'A'){
                 ?>
-                <li class="usuarios-lista"><a href="integracao.php">Integrações</a></li>                
+                <li class="integracoes"><a href="integracao.php">Integrações</a></li>                
                 <div class="separador"></div>
 
                 <li class="usuarios-lista"><a href="usuario-listar.php">Usuários</a></li>                

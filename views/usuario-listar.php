@@ -55,8 +55,8 @@
                         <td><?php echo $item['id']?></td>
                         <td><?php echo $item['nome_usuario']?></td>
                         <td><?php echo $item['email']?></td>
-                        <td><?php echo $item['data_cadastro']?></td>
-                        <td><?php echo $item['data_atualizacao']?></td>
+                        <td><?php echo date('d/m/Y H:i:s',strtotime($item['data_cadastro']));?></td>
+                        <td><?php if($item['data_atualizacao']){echo date('d/m/Y H:i:s',strtotime($item['data_atualizacao']));}?></td>
                         <td><?php echo $item['tipo'] == 'A'?'Administrador':'Normal';?></td>                                    
                         <td><?php echo $item['status'] == 'A'?'Ativo':'Inativo';?></td>
                         <td><a href="usuario-editar.php?id=<?php echo $item['id']?>"><img src="../assets/editar.png" alt="Editar" title="Editar"></a></td>

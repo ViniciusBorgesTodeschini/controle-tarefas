@@ -7,7 +7,7 @@
 
     $sql = "SELECT * 
             FROM usuario 
-            WHERE (usuario.email = '$login'         OR 
+            WHERE (usuario.email        = '$login'  OR 
                    usuario.nome_usuario = '$login') AND 
                   senha = '$senha'                  AND
                   status ='A'";

@@ -18,12 +18,10 @@ div.separador{
 }
 
 div.imagem-empresa{
-    padding: 20px;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin-left: 15%;
     background-color: white;
-    text-align: center;
 }
 
 div.menu{
@@ -93,6 +91,14 @@ li.usuarios-lista{
     width: 25;
     height: 25px;
     list-style-image: url("../assets/usuarios-lista.png");    
+}
+
+li.integracoes{
+    margin-left: 1%;
+    padding-left: 10px;
+    width: 25;
+    height: 25px;
+    list-style-image: url("../assets/integracoes.png");    
 }
 
 .user-logado{
@@ -249,6 +255,18 @@ td{
     text-align: center;
     font-size: 25px;
     font-weight: bolder;
+}
+
+.alterar{
+    position: absolute;
+    margin-top: 130px;
+    margin-left: -25px;
+}
+
+.logo-empresa{
+    width: 150px;
+    height: 150px;
+    text-align: center;
 }
 
 /*VALIDAÇÕES*/
