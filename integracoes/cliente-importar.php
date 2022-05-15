@@ -1,5 +1,7 @@
 <?php
 	include('../conexao.php');
+    session_start();
+
 	$json = $_POST['json'];
 	$array = json_decode($json, true);    
 	
@@ -13,8 +15,9 @@
         if($query){
             header('Location: ../views/cliente-listar.php?ok=1');
         } else {
+            $_SESSION['importacao-cliente'] = $json;
             $mensagemErro = "Não foi possível cadastrar a pessoa! Erro: " . mysqli_error($conexao) . ". ";
-            header('Location: ../views/cliente-listar.php?msg=' . $mensagemErro);
+            header('Location: ../views/integracao-cliente-importar.php?msg=' . $mensagemErro);
         }
 	}
 	

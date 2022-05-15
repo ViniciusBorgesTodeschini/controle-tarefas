@@ -16,13 +16,13 @@
 
     $query = mysqli_query($conexao, $sql);
     if(!$query) {
-        $_SESSION['exportacao'] = "Não foi possível exportar o cliente!. Erro: " . mysqli_error($conexao);
+        $_SESSION['exportacao-cliente'] = "Não foi possível exportar o cliente!. Erro: " . mysqli_error($conexao);
         header('Location: ../views/integracao-exibicao-exportar.php?msg=' . $mensagemErro);        
     } else {        
         while ($item = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
             $lista[] = $item;
         }
-        $_SESSION['exportacao'] = $lista;
+        $_SESSION['exportacao-cliente'] = $lista;
         header('Location: ../views/integracao-exibicao-exportar.php?ok=1');
     }       
 	
