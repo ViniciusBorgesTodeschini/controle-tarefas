@@ -15,7 +15,7 @@
     </header>
 
     <section class="conteudo-cadastro">
-        <textarea name="json" id="json" cols="100" rows="50"><?php print_r($_SESSION['exportacao'])?></textarea>        
+        <textarea name="json" id="json" cols="100" rows="50"><?php print_r($_SESSION['exportacao-cliente'])?></textarea>        
     </section>
 
     <footer></footer>

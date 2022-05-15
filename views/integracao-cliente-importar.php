@@ -15,8 +15,22 @@
     </header>
 
     <section class="conteudo-cadastro">
+        <?php
+            if(@$_GET['msg']) {
+                echo '<p class="erro">Não foi possível concluir o processo! Erro: ' . $_GET['msg'] . '</p>';
+            }
+        ?>         
+
         <form action="../integracoes/cliente-importar.php" method="POST">
-            <textarea name="json" cols="100" rows="50"></textarea>
+            <?php
+                if(@$_GET['msg']) {
+                    echo '<textarea name="json" cols="100" rows="50">'.$_SESSION['importacao-cliente'].'</textarea>';
+                } else {
+            ?>            
+                <textarea name="json" cols="100" rows="50"></textarea>
+            <?php
+                }
+            ?>            
             <br><br>
 
             <button type="submit">Cadastrar</button>
