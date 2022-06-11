@@ -36,8 +36,7 @@
                     $query = mysqli_query($conexao, $sql);
                     while ($item = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                 ?>
-                <option value="<?php echo $item['id']; ?>" <?php if ($item['id'] == $atendimento['id_meio_atend']) { 
-                    echo 'selected="selected"'; } ?>><?php echo $item['nome']; }?></option>
+                <option value="<?php echo $item['id']; ?>"><?php echo $item['nome']; }?></option>
             </select><br><br>
 
             <label for="solicitante">Solicitante:</label><br>
@@ -47,8 +46,7 @@
                     $query = mysqli_query($conexao, $sql);
                     while ($item = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                 ?>
-                <option value="<?php echo $item['id']; ?>" <?php if ($item['id'] == $atendimento['id_pessoa']) { 
-                    echo 'selected="selected"'; } ?>><?php echo $item['nome']; }?></option>
+                <option value="<?php echo $item['id']; ?>"><?php echo $item['nome']; }?></option>
             </select><br><br>
 
             <label for="assunto">Assunto:</label><br>
@@ -58,18 +56,33 @@
                     $query = mysqli_query($conexao, $sql);
                     while ($item = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                 ?>
-                <option value="<?php echo $item['id']; ?>" <?php if ($item['id'] == $atendimento['id_assunto']) { 
-                    echo 'selected="selected"'; } ?>><?php echo $item['nome']; }?></option>
+                <option value="<?php echo $item['id']; ?>"><?php echo $item['nome']; }?></option>
             </select><br><br>
 
             <label for="detalhes">Detalhes:</label><br>
             <textarea name="detalhes" id="detalhes" cols="80" rows="8" maxlength="500"><?php echo $atendimento['detalhes'] ?></textarea><br><br>
 
             <button type="submit">Salvar</button>
-        </form> 
+        </form>
+        <input type="hidden" name="idMeio" id="idMeio" value="<?php echo $atendimento['id_meio_atend']?>">
+        <input type="hidden" name="idPessoa" id="idPessoa" value="<?php echo $atendimento['id_pessoa']?>">
+        <input type="hidden" name="idAssunto" id="idAssunto" value="<?php echo $itemVinculoEmpregador['id_assunto']?>"> 
     </section>   
 </body>
 </html>
 <?php
     mysqli_close($conexao);
 ?>
+<script type="text/javascript" src="../jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+        var meio = $('#idMeio').val();
+        $('select#id_meio_atend option[value="'+ meio + '"]').prop('selected', true);
+
+        var pessoa = $('#idPessoa').val();
+        $('select#id_pessoa option[value="'+ pessoa + '"]').prop('selected', true);
+
+        var assunto = $('#idAssunto').val();
+        $('select#id_assunto option[value="'+ assunto + '"]').prop('selected', true);
+	});
+</script>
