@@ -32,6 +32,8 @@
     </header>    
 
     <section class="conteudo-cadastro">  
+        <input type="hidden" name="idDptoVinculo" id="idDptoVinculo" value="<?php echo $itemVinculoDepartamento['id_dpto']?>">
+        <input type="hidden" name="idEmpregadorVinculo" id="idEmpregadorVinculo" value="<?php echo $itemVinculoEmpregador['id_pj']?>">
         <form action="../controllers/pessoa/pessoa-editar.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $id ?>">
             <label>Código:</label><br>
@@ -50,8 +52,7 @@
                     $queryEmpregador = mysqli_query($conexao, $sqlEmpregador);
                     while ($empregador = mysqli_fetch_array($queryEmpregador, MYSQLI_ASSOC)) {
                 ?>
-                <option value="<?php echo $empregador['id']; ?>" <?php if ($empregador['id'] == $itemVinculoEmpregador['id_pj']) { 
-                    echo 'selected="selected"'; } ?>><?php echo $empregador['nome']; }?></option>
+                <option value="<?php echo $empregador['id']; ?>"><?php echo $empregador['nome']; }?></option>
             </select><br><br>
 
             <label for="departamento">Departamento:</label><br>
@@ -61,8 +62,7 @@
                     $queryDepartamento = mysqli_query($conexao, $sqlDepartamento);
                     while ($departamento = mysqli_fetch_array($queryDepartamento, MYSQLI_ASSOC)) {
                 ?>
-                <option value="<?php echo $departamento['id']; ?>" <?php if ($departamento['id'] == $itemVinculoDepartamento['id_dpto']) { 
-                    echo 'selected="selected"'; } ?>><?php echo $departamento['nome']; }?></option>
+                <option id="opDpto" value="<?php echo $departamento['id']; ?>"><?php echo $departamento['nome']; }?></option>
             </select><br><br>        
             
             <label for="endereco">Endereço:</label><br>
@@ -85,3 +85,13 @@
 <?php
     mysqli_close($conexao);
 ?>
+<script type="text/javascript" src="../jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+        var departamento = $('#idDptoVinculo').val();
+        $('select#departamento option[value="'+ departamento + '"]').prop('selected', true);
+
+        var empregador = $('#idEmpregadorVinculo').val();
+        $('select#id_pj option[value="'+ empregador + '"]').prop('selected', true);
+	});
+</script>
