@@ -22,6 +22,11 @@
                 <a href="pessoa-cadastro.php">Cadastrar</a>
             </div>
 
+            <div class="pesquisa">
+		        <input type="text" class="inputPesquisar" id="pesquisar" placeholder="Nome"> 
+		        <button type="button" id="btnPesquisar"><img src="../assets/pesquisa.png" alt="Pesquisar" title="Pesquisar" class="imgPesquisar"></button>                
+            </div>            
+
             <table class="listagem">
                 <thead>
                     <tr>
@@ -38,7 +43,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="lista">
                     <?php
                         if(@$_GET['ok']) {
                             echo '<p class="sucesso">Processo realizado com sucesso!</p>';
@@ -98,4 +103,17 @@
 			var excluir = confirm("Deseja excluir o cadastro?");
 		});
 	});
+
+    $('#btnPesquisar').on('click', function(){
+        $.ajax({
+            url: 'pessoa-pesquisar.php',
+            method: 'POST',
+            data: {
+                descricao: $('#pesquisar').val()
+            }
+        }).done(function(retorno){
+            $('#lista').empty();
+			$('#lista').html(retorno);
+        });
+    })    
 </script>

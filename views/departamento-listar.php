@@ -20,7 +20,12 @@
 
             <div class="cadastrar">
                 <a href="departamento-cadastro.php">Cadastrar</a>
-            </div>        
+            </div>
+            
+            <div class="pesquisa">
+		        <input type="text" class="inputPesquisar" id="pesquisar" placeholder="Descrição"> 
+		        <button type="button" id="btnPesquisar"><img src="../assets/pesquisa.png" alt="Pesquisar" title="Pesquisar" class="imgPesquisar"></button>                
+            </div>
 
             <table class="listagem">
                 <thead>
@@ -31,7 +36,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="lista">
                     <?php
                         if(@$_GET['ok']) {
                             echo '<p class="sucesso">Processo realizado com sucesso!</p>';
@@ -81,5 +86,18 @@
                 alert('Processo cancelado.');
             }
 		});
+
+        $('#btnPesquisar').on('click', function(){
+            $.ajax({
+                url: 'departamento-pesquisar.php',
+                method: 'POST',
+                data: {
+                    descricao: $('#pesquisar').val()
+                }
+            }).done(function(retorno){
+                $('#lista').empty();
+				$('#lista').html(retorno);
+            });
+        });
 	});
 </script>
