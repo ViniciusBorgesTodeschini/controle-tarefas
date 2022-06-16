@@ -26,6 +26,7 @@
 
             <label for="id_pj">Empregador:</label><br>
             <select name="id_pj" id="id_pj" class="input-nome">
+                <option value="0">Nenhum</option>
                 <?php 
                     $query = mysqli_query($conexao,"SELECT * FROM pessoa WHERE cliente = 'S'");
                     while ($pessoa = mysqli_fetch_array($query, MYSQLI_ASSOC)) {

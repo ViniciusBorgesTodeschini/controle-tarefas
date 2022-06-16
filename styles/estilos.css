@@ -205,6 +205,22 @@ td{
     color: white;
 }
 
+button#btnPesquisar{
+    width: 25px;
+    height: 23px;
+}
+
+div.pesquisa{
+    margin-left: 200px;
+    margin-top: -50px;
+    margin-bottom: 40px;
+}
+
+.imgPesquisar{
+    margin-left: -3px;
+    margin-top: 1px;
+}
+
 .field-atendimento{
     width: 500px;
     padding: 10px;

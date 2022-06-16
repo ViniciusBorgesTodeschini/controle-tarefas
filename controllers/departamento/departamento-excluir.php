@@ -20,19 +20,15 @@
         while($item = mysqli_fetch_array($queryConsulta, MYSQLI_ASSOC)){
 			if($item['pessoa']){
 				$mensagemErro .= "O departamento com o código " . $item['departamento'] . " está vinculado a pessoa " . $item['pessoa'] . ". ";   
-
-				header('Location: ../../views/pessoa-listar.php?msg=' . $mensagemErro);
+                echo $mensagemErro;
 					
 			} else {                
 				$itemExcluir = $item['departamento'];
 
 				$sqlExcluir = "DELETE FROM departamento WHERE id = {$itemExcluir}";
 				$queryExcluir = mysqli_query($conexao, $sqlExcluir);
-				if($queryExcluir) {
-					header('Location: ../../views/departamento-listar.php?ok=1');
-				} else {
-					$mensagemErro .= mysqli_error($conexao) . ". ";
-					header('Location: ../../views/departamento-listar.php?msg=' . $mensagemErro);
+				if(!$queryExcluir) {
+                    echo mysqli_error($conexao);
 				} 
 			}
 		}

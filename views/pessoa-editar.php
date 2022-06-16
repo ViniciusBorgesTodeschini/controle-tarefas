@@ -47,6 +47,7 @@
 
             <label for="id_pj">Empregador:</label><br>
             <select name="id_pj" id="id_pj" class="input-nome">
+                <option value="0">Nenhum</option>
                 <?php
                     $sqlEmpregador = "SELECT * FROM pessoa";
                     $queryEmpregador = mysqli_query($conexao, $sqlEmpregador);

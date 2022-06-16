@@ -24,31 +24,28 @@
         echo mysqli_error($conexao);
     } else {        
         while($item = mysqli_fetch_array($queryPessoa, MYSQLI_ASSOC)){
-            if($item['atendimento'] || $item['usuario'] || $item['funcionario'] || $item['empregador']){   
+            if($item['atendimento'] || $item['usuario'] || $item['funcionario'] && $item['empregador'] != 0){
                 if($item['atendimento']){
-                    $mensagemErro .= "A pessoa com o código " . $item['pessoa'] . " está vinculada ao atendimento " . $item['atendimento'] . ". ";
+                    $mensagemErro .= "A pessoa com o código " . $item['pessoa'] . " está vinculada ao atendimento " . $item['atendimento'] . ". \n";
                 }
                     
                 if($item['usuario']){
-                $mensagemErro .= "A pessoa com o código " . $item['pessoa'] . " está vinculada ao usuário " . $item['usuario'] . ". ";;                
+                $mensagemErro .= "A pessoa com o código " . $item['pessoa'] . " está vinculada ao usuário " . $item['usuario'] . ". \n";
                 }
 
-                if($item['funcionario']){
-                    $mensagemErro .= "A pessoa com o código " . $item['pessoa'] . " está vinculada a pessoa " . $item['empregador'] . ". ";;                
+                if($item['funcionario'] && $item['empregador'] != 0){
+                    $mensagemErro .= "A pessoa com o código " . $item['pessoa'] . " está vinculada a pessoa " . $item['empregador'] . ". \n";
                 }             
 
-                header('Location: ../../views/pessoa-listar.php?msg=' . $mensagemErro);
-                    
+                echo $mensagemErro;
             } else {                
                 $pessoaExluir = $item['pessoa'];
 
                 $sql = "DELETE FROM pessoa WHERE id = {$pessoaExluir}";
                 $query = mysqli_query($conexao, $sql);
-                if($query) {
-                    header('Location: ../../views/pessoa-listar.php?ok=1');
-                } else {
+                if(!$query) {
                     $mensagemErro .= mysqli_error($conexao) . ". ";
-                    header('Location: ../../views/pessoa-listar.php?msg=' . $mensagemErro);
+                    echo $mensagemErro;
                 } 
             }
         }

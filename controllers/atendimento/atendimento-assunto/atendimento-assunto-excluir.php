@@ -18,24 +18,19 @@
         while($item = mysqli_fetch_array($queryConsulta, MYSQLI_ASSOC)){
 			if($item['atendimento']){
 				$mensagemErro .= "O assunto de atendimento com o código " . $item['assunto'] . " está vinculado ao atendimento " . $item['atendimento'] . ". ";   
-
-				header('Location: ../../../views/atendimento-assunto-listar.php?msg=' . $mensagemErro);
-					
+				echo $mensagemErro;
 			} else {                
 				$itemExcluir = $item['assunto'];
 
-				$sqlExcluir = "DELETE FROM atendimento_assunto WHERE id = {$itemExcluir}";
+				$sqlExcluir = "DELETE FROM atendimento_assunto WHERE atendimento_assunto.id = {$itemExcluir}";
 				$queryExcluir = mysqli_query($conexao, $sqlExcluir);
-				if($queryExcluir) {
-					header('Location: ../../../views/atendimento-assunto-listar.php?ok=1');
-				} else {
+				if(!$queryExcluir) {
 					$mensagemErro .= mysqli_error($conexao) . ". ";
-					header('../../../views/atendimento-assunto-listar.php?msg=' . $mensagemErro);
+					echo $mensagemErro;
 				} 
 			}
 		}
-    }
-	
+    }	
 
     mysqli_close($conexao);
 ?>
