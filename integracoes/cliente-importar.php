@@ -6,7 +6,7 @@
 	$array = json_decode($json, true);    
 	
 	foreach($array as $info) {
-        if(count($info) == 9){
+        if(isset($info['id'])){
             $sqlPessoa = "SELECT * FROM pessoa WHERE id = " . $info['id'];
             $queryPessoa = mysqli_query($conexao, $sqlPessoa);
             if(!$queryPessoa) {
