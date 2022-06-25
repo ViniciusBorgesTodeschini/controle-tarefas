@@ -216,6 +216,10 @@ div.pesquisa{
     margin-bottom: 40px;
 }
 
+div.pesquisa-integracao{    
+    padding: 10px;
+}
+
 .imgPesquisar{
     margin-left: -3px;
     margin-top: 1px;

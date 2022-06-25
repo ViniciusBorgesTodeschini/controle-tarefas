@@ -66,7 +66,7 @@
         </form>
         <input type="hidden" name="idMeio" id="idMeio" value="<?php echo $atendimento['id_meio_atend']?>">
         <input type="hidden" name="idPessoa" id="idPessoa" value="<?php echo $atendimento['id_pessoa']?>">
-        <input type="hidden" name="idAssunto" id="idAssunto" value="<?php echo $itemVinculoEmpregador['id_assunto']?>"> 
+        <input type="hidden" name="idAssunto" id="idAssunto" value="<?php echo $atendimento['id_assunto']?>"> 
     </section>   
 </body>
 </html>
